@@ -13,7 +13,7 @@ pipeline {
 
     stage('Test Environment') {
       steps {
-        sh '''. ${BUILD_TAG}/.venv/bin/activate'
+        sh '''. ${BUILD_TAG}/.venv/bin/activate\'
         tox
         '''
       }
