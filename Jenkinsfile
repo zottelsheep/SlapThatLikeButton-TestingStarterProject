@@ -5,6 +5,7 @@ pipeline {
       steps {
         sh '''python -m venv ${BUILD_TAG}/.venv
         . ${BUILD_TAG}/.venv/bin/activate
+        which pip
         pip install --upgrade pip
         pip install -r requirements_dev.txt
         '''
