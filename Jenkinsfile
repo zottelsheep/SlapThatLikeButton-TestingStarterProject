@@ -4,17 +4,18 @@ pipeline {
     stage('Build Env') {
       steps {
         sh '''python -m venv ${BUILD_TAG}/.venv
-'''
-        sh '. ${BUILD_TAG}/.venv/bin/activate'
-        sh 'pip install --upgrade pip'
-        sh 'pip install -r requirements_dev.txt'
+        . ${BUILD_TAG}/.venv/bin/activate
+        pip install --upgrade pip
+        pip install -r requirements_dev.txt
+        '''
       }
     }
 
     stage('Test Environment') {
       steps {
-        sh '. ${BUILD_TAG}/.venv/bin/activate'
-        sh 'tox '
+        sh '''. ${BUILD_TAG}/.venv/bin/activate'
+        tox
+        '''
       }
     }
 
