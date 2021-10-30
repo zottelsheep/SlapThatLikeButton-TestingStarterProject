@@ -17,6 +17,7 @@ pipeline {
         sh '''. ${BUILD_TAG}/.venv/bin/activate
         tox
         '''
+        junit '**/junit-*.xml'
       }
     }
 
